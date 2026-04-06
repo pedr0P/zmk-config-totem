@@ -42,16 +42,16 @@
             // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
             // ┃    ESC    ┃     Z     ┃     X     ┃     C     ┃     D     ┃     V     ┃   ┃     K     ┃     H     ┃     ,     ┃     .     ┃     /     ┃     \     ┃
             // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-            //                                     ┃   LGUI    ┃    SPC    ┃   /TAB    ┃   ┃   RSHFT   ┃   /RET    ┃   LCTRL   ┃
+            //                                     ┃ LSHFT/ESC ┃    SPC    ┃   /TAB    ┃   ┃           ┃   /RET    ┃           ┃
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
             bindings = <
 
                 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                &kp Q       &kp W       &kp F       &kp P       &kp B           &kp O       &kp L       &kp U       &kp Y       &kp APOS
-                &mt LGUI A  &mt LALT R  &mt LCTRL S &mt LSHFT T &kp G           &kp M       &mt RSHFT N &mt RCTRL E &mt RALT I  &mt RGUI J
-                &kp ESC     &kp Z       &kp X       &kp C       &kp D       &kp V           &kp K       &kp H       &kp COMMA   &kp DOT     &kp FSLH    &kp BSLH
-                &mt LSHFT ESC   &kp SPC     &lt NAV TAB     &kp LGUI    &lt SYM RET &trans
+                               &kp Q       &kp W       &kp F       &kp P       &kp B           &kp O       &kp L       &kp U       &kp Y       &kp APOS
+                               &mt LGUI A  &mt LALT R  &mt LCTRL S &mt LSHFT T &kp G           &kp M       &mt RSHFT N &mt RCTRL E &mt RALT I  &mt RGUI J
+                   &kp ESC     &kp Z       &kp X       &kp C       &kp D       &kp V           &kp K       &kp H       &kp COMMA   &kp DOT     &kp FSLH    &kp BSLH
+                                                     &mt LSHFT ESC &kp SPC     &lt NAV TAB     &trans      &lt SYM RET &trans
             >;
         };
 
@@ -65,15 +65,15 @@
             // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
             // ┃           ┃     (     ┃     )     ┃     [     ┃     ]     ┃           ┃   ┃ BACKSPACE ┃  DELETE   ┃     \     ┃     /     ┃           ┃           ┃
             // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-            //                                     ┃           ┃           ┃           ┃   ┃           ┃           ┃    ADJ    ┃
+            //                                     ┃           ┃           ┃           ┃   ┃     SYM   ┃   SPACE   ┃    ADJ    ┃
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
             bindings = <
                 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                &kp tilde   &bt APOS    &kp SEMI    &kp CARET   &kp UP          &trans      &kp MINUS   &kp EQUAL   &trans      &trans
-                &trans      &trans      &kp LBRC    &kp RBRC    &kp QMARK       &trans      &trans      &trans      &trans      &trans
-                &trans      &kp LPAR    &kp RPAR    &kp LBKT    &kp RBKT    &trans          &kp BSPC    &kp DEL     &kp BSLH    &kp FSLH    &trans &trans      
-                &trans      &trans      &trans      &mo SYM     &kp SPC     &mo ADJ
+                               &kp TILDE   &bt APOS    &kp SEMI    &kp CARET   &tran           &trans      &kp MINUS   &kp EQUAL   &trans      &trans
+                               &trans      &trans      &kp LBRC    &kp RBRC    &kp QMARK       &trans      &trans      &trans      &trans      &trans
+                   &trans      &kp LPAR    &kp RPAR    &kp LBKT    &kp RBKT    &trans          &kp BSPC    &kp DEL     &kp BSLH    &kp FSLH    &trans      &trans      
+                                                       &trans      &trans      &trans          &mo SYM     &kp SPC     &mo ADJ
             >;
         };
 
