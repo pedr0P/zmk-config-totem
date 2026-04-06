@@ -70,10 +70,10 @@
             bindings = <
                 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                               &kp TILDE   &bt APOS    &kp SEMI    &kp CARET   &tran           &trans      &kp MINUS   &kp EQUAL   &trans      &trans
-                               &trans      &trans      &kp LBRC    &kp RBRC    &kp QMARK       &trans      &trans      &trans      &trans      &trans
-                   &trans      &kp LPAR    &kp RPAR    &kp LBKT    &kp RBKT    &trans          &kp BSPC    &kp DEL     &kp BSLH    &kp FSLH    &trans      &trans      
-                                                       &trans      &trans      &trans          &mo SYM     &kp SPC     &mo ADJ
+                                &kp TILDE   &bt APOS    &kp SEMI    &kp CARET   &trans          &trans      &kp MINUS   &kp EQUAL   &trans      &trans
+                                &trans      &trans      &kp LBRC    &kp RBRC    &kp QMARK       &trans      &trans      &trans      &trans      &trans
+                    &trans      &kp LPAR    &kp RPAR    &kp LBKT    &kp RBKT    &trans          &kp BSPC    &kp DEL     &kp BSLH    &kp FSLH    &trans      &trans      
+                                                        &trans      &trans      &trans          &mo SYM     &kp SPC     &mo ADJ
             >;
         };
 
