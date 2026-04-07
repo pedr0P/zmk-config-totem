@@ -81,7 +81,7 @@
                                 &kp TILDE   &kp APOS    &kp SEMI    &kp CARET   &mkp LCLK       &mkp RCLK   &trans      &kp MINUS   &kp EQUAL   &trans
                                 &trans      &trans      &kp LBRC    &kp RBRC    &kp QMARK   &msc SCRL_UP &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT
                     &trans      &kp LPAR    &kp RPAR    &kp LBKT    &kp RBKT    &trans       &msc SCRL_DOWN &kp BSPC    &kp DEL     &kp BSLH    &kp FSLH    &trans
-                                                        &trans      &trans      &trans          &trans      &lt SYM SPC  &mo ADJ
+                                                        &trans      &trans      &kp SPC         &kp SPC     &lt SYM SPC  &mo ADJ
             >;
         };
 
