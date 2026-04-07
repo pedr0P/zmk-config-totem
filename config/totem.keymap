@@ -90,19 +90,19 @@
             //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
             //             ┃     1     ┃     2     ┃     3     ┃     4     ┃     5     ┃   ┃     6     ┃     7     ┃     8     ┃     9     ┃     0     ┃
             //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-            //             ┃           ┃           ┃           ┃           ┃           ┃   ┃           ┃    LEFT   ┃   DOWN    ┃     UP    ┃   RIGHT   ┃
+            //             ┃           ┃           ┃ VOL_DOWN  ┃  VOL_UP   ┃           ┃   ┃           ┃    LEFT   ┃   DOWN    ┃     UP    ┃   RIGHT   ┃
             // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
-            // ┃           ┃           ┃           ┃           ┃           ┃           ┃   ┃           ┃ BACKSPACE ┃  DELETE   ┃           ┃           ┃           ┃
+            // ┃           ┃           ┃           ┃ MEDIA_PREV┃MEDIA_NEXT ┃           ┃   ┃           ┃ BACKSPACE ┃  DELETE   ┃           ┃           ┃           ┃
             // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-            //                                     ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃
+            //                                     ┃ PLAY/PAUSE┃           ┃   SPACE   ┃   ┃   SPACE   ┃           ┃           ┃
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
             bindings = <
                 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
                                 &kp N1      &kp N2      &kp N3      &kp N4      &kp N5          &kp N6      &kp N7      &kp N8      &kp N9      &kp N0       
-                                &trans      &trans      &trans      &trans      &trans          &trans      &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT
-                    &trans      &trans      &trans      &trans      &trans      &trans          &trans      &kp BSPC    &kp DEL     &trans      &trans      &trans         
-                                                        &trans      &mo NAV     &trans          &trans      &trans      &trans      
+                                &trans      &trans    &kp C_VOL_DN &kp C_VOL_UP &trans          &trans      &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT
+                    &trans      &trans      &trans    &kp C_PREV   &kp C_NEXT   &trans          &trans      &kp BSPC    &kp DEL     &trans      &trans      &trans         
+                                                        &kp C_PP      &trans      &kp SPC         &kp SPC     &trans      &trans      
             >;
         };
 
