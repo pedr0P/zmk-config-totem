@@ -25,7 +25,7 @@
 
 &mmv_input_listener {
     input-processors = <&zip_xy_scaler 2 2>;
-}
+};
 
 / {
     combos {
