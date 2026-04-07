@@ -60,7 +60,7 @@
                                 &mt LGUI A  &mt LALT R  &mt LCTRL S &mt LSHFT T &kp G           &kp J       &mt RSHFT M &mt RCTRL N &mt RALT E  &mt RGUI I
                     &kp ESC     &kp Z       &kp X       &kp C       &kp D       &kp V           &trans      &kp K       &kp H       &kp COMMA   &kp DOT     &trans
                                                         &trans      &lt NAV SPC &kp TAB         &trans      &lt SYM RET     &kp ESC
-            ;
+            >;
         };
 
         nav_layer {
