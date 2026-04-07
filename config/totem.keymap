@@ -4,8 +4,8 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <input/processors.dtsi>
 
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 1000  // default: 600
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 15    // default: 10
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1600  // default: 600
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
 
 #include <dt-bindings/zmk/pointing.h>
 
