@@ -65,8 +65,8 @@
 
                                 &kp Q       &kp W       &kp F       &kp P       &kp B           &kp APOS    &kp O       &kp L       &kp U       &kp Y
                                 &kp A       &kp R       &kp S       &kp T       &kp G           &kp J       &kp M       &kp N       &kp E       &kp I
-                    &kp SHIFT   &kp Z       &kp X       &kp C       &kp D       &kp V           &kp B       &kp K       &kp H       &kp COMMA   &kp DOT     &trans
-                                                        &kp CTRL    &lt NAV SPC &kp LALT        &kp TAB     &lt SYM RET &kp ESC
+                    &kp LSHFT   &kp Z       &kp X       &kp C       &kp D       &kp V           &kp B       &kp K       &kp H       &kp COMMA   &kp DOT     &trans
+                                                        &kp LCTRL   &lt NAV SPC &kp LALT        &kp TAB     &lt SYM RET &kp ESC
             >;
         };
 
