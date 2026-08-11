@@ -18,14 +18,14 @@
 #include <dt-bindings/zmk/pointing.h>
 
 #define BASE       0
-#define NUM        1
-#define SYM        2
-#define NAV        3
-#define MOUSE      4
-#define ADJ        5
-#define GAME       6
-#define ARROW      7
-#define OPTS       8
+// #define NUM        1
+// #define SYM        2
+// #define NAV        3
+// #define MOUSE      4
+// #define ADJ        5
+// #define GAME       6
+// #define ARROW      7
+// #define OPTS       8
 
 &mt {
     quick-tap-ms = <200>;
@@ -193,152 +193,82 @@
         };
 
     };
-
     combos {
         compatible = "zmk,combos";
 
-        combo_lshift {
-            timeout-ms = <25>;
-            key-positions = <12 13>;       // T + S
-            bindings = <&kp LSHFT>;
-        };
+        combo_lshift { timeout-ms = <25>; key-positions = <12 13>;       // T + S
+            bindings = <&kp LSHFT>; };
 
-        combo_rshift {
-            timeout-ms = <25>;
-            key-positions = <17 18>;       // M + N
-            bindings = <&kp RSHFT>;
-        };
+        combo_rshift { timeout-ms = <25>; key-positions = <17 18>;       // M + N
+            bindings = <&kp RSHFT>; };
 
-        combo_lctrl {
-            timeout-ms = <25>;
-            key-positions = <12 11>;       // S + R
-            bindings = <&kp LCTRL>;
-        };
+        combo_lctrl { timeout-ms = <25>; key-positions = <12 11>;       // S + R
+            bindings = <&kp LCTRL>; };
 
-        combo_rctrl {
-            timeout-ms = <25>;
-            key-positions = <18 19>;       // N + E
-            bindings = <&kp RCTRL>;
-        };
+        combo_rctrl { timeout-ms = <25>; key-positions = <18 19>;       // N + E
+            bindings = <&kp RCTRL>; };
 
-        combo_lalt {
-            timeout-ms = <25>;
-            key-positions = <2 1>;         // F + W
-            bindings = <&kp LALT>;
-        };
+        combo_lalt { timeout-ms = <25>; key-positions = <2 1>;         // F + W
+            bindings = <&kp LALT>; };
 
-        combo_ralt {
-            timeout-ms = <25>;
-            key-positions = <7 8>;         // L + U
-            bindings = <&kp RALT>;
-        };
+        combo_ralt { timeout-ms = <25>; key-positions = <7 8>;         // L + U
+            bindings = <&kp RALT>; };
 
-        combo_lgui {
-            timeout-ms = <25>;
-            key-positions = <10 11>;       // A + R
-            bindings = <&kp LGUI>;
-        };
+        combo_lgui { timeout-ms = <25>; key-positions = <10 11>;       // A + R
+            bindings = <&kp LGUI>; };
 
-        combo_rgui {
-            timeout-ms = <25>;
-            key-positions = <19 20>;       // E + I
-            bindings = <&kp RGUI>;
-        };
+        combo_rgui { timeout-ms = <25>; key-positions = <19 20>;       // E + I
+            bindings = <&kp RGUI>; };
 
-        combo_lgui_alt {
-            timeout-ms = <25>;
-            key-positions = <10 2>;        // A + F
-            bindings = <&sk LGUI>;
-        };
+        combo_lgui_alt { timeout-ms = <25>; key-positions = <10 2>;        // A + F
+            bindings = <&sk LGUI>; };
 
-        combo_rgui_alt {
-            timeout-ms = <25>;
-            key-positions = <7 20>;        // L + I
-            bindings = <&sk RGUI>;
-        };
+        combo_rgui_alt { timeout-ms = <25>; key-positions = <7 20>;        // L + I
+            bindings = <&sk RGUI>; };
 
-        combo_lgui_ctrl {
-            timeout-ms = <25>;
-            key-positions = <10 11 12>;    // A R S
-            bindings = <&sk LGUI>;
-        };
+        combo_lgui_ctrl { timeout-ms = <25>; key-positions = <10 11 12>;    // A R S
+            bindings = <&sk LGUI>; };
 
-        combo_rgui_ctrl {
-            timeout-ms = <25>;
-            key-positions = <18 19 20>;    // N E I
-            bindings = <&sk RGUI>;
-        };
+        combo_rgui_ctrl { timeout-ms = <25>; key-positions = <18 19 20>;    // N E I
+            bindings = <&sk RGUI>; };
 
-        combo_lgui_shift {
-            timeout-ms = <25>;
-            key-positions = <10 11 13>;    // A R T
-            bindings = <&sk LGUI>;
-        };
+        combo_lgui_shift { timeout-ms = <25>; key-positions = <10 11 13>;    // A R T
+            bindings = <&sk LGUI>; };
 
-        combo_rgui_shift {
-            timeout-ms = <25>;
-            key-positions = <17 19 20>;    // M E I
-            bindings = <&sk RGUI>;
-        };
+        combo_rgui_shift { timeout-ms = <25>; key-positions = <17 19 20>;    // M E I
+            bindings = <&sk RGUI>; };
 
-        combo_lalt_shift {
-            timeout-ms = <25>;
-            key-positions = <2 13>;        // F T
-            bindings = <&sk LALT>;
-        };
+        combo_lalt_shift { timeout-ms = <25>; key-positions = <2 13>;        // F T
+            bindings = <&sk LALT>; };
 
-        combo_ralt_shift {
-            timeout-ms = <25>;
-            key-positions = <7 17>;        // L M
-            bindings = <&sk RALT>;
-        };
+        combo_ralt_shift { timeout-ms = <25>; key-positions = <7 17>;        // L M
+            bindings = <&sk RALT>; };
 
 
         /*
         * Functional combos
         */
 
-        combo_caps {
-            timeout-ms = <25>;
-            key-positions = <3 4>;         // P + B
-            bindings = <&kp CAPS>;
-        };
+        combo_caps { timeout-ms = <25>; key-positions = <3 4>;         // P + B
+            bindings = <&kp CAPS>; };
 
-        combo_esc {
-            timeout-ms = <25>;
-            key-positions = <17 20>;       // M + I
-            bindings = <&kp ESC>;
-        };
+        combo_esc { timeout-ms = <25>; key-positions = <17 20>;       // M + I
+            bindings = <&kp ESC>; };
 
-        combo_tab {
-            timeout-ms = <25>;
-            key-positions = <0 1>;         // Q + W
-            bindings = <&kp TAB>;
-        };
+        combo_tab { timeout-ms = <25>; key-positions = <0 1>;         // Q + W
+            bindings = <&kp TAB>; };
 
-        combo_backspace {
-            timeout-ms = <25>;
-            key-positions = <28 18>;       // K + N
-            bindings = <&kp BSPC>;
-        };
+        combo_backspace { timeout-ms = <25>; key-positions = <28 18>;       // K + N
+            bindings = <&kp BSPC>; };
 
-        combo_delete {
-            timeout-ms = <25>;
-            key-positions = <28 29>;       // K + H
-            bindings = <&kp DEL>;
-        };
+        combo_delete { timeout-ms = <25>; key-positions = <28 29>;       // K + H
+            bindings = <&kp DEL>; };
 
-        combo_arrow_left {
-            timeout-ms = <25>;
-            key-positions = <1 13>;        // W + T
-            bindings = <&mo ARROW>;
-        };
+        combo_arrow_left { timeout-ms = <25>; key-positions = <1 13>;        // W + T
+            bindings = <&mo ARROW>; };
 
-        combo_arrow_right {
-            timeout-ms = <25>;
-            key-positions = <17 8>;        // M + U
-            bindings = <&mo ARROW>;
-        };
+        combo_arrow_right { timeout-ms = <25>; key-positions = <17 8>;        // M + U
+            bindings = <&mo ARROW>; };
 
         /*
         * Navigation layer:
@@ -350,24 +280,17 @@
         * ZMK doesn't have a direct TT equivalent, so sticky layer
         * is the closest useful representation here.
         */
-        combo_nav_left {
-            timeout-ms = <25>;
-            key-positions = <1 2 13>;      // W F T
-            bindings = <&sl NAV>;
-        };
 
-        combo_nav_right {
-            timeout-ms = <25>;
-            key-positions = <17 7 8>;      // M L U
-            bindings = <&sl NAV>;
-        };
+        combo_nav_left { timeout-ms = <25>; key-positions = <1 2 13>;      // W F T
+            bindings = <&sl NAV>; };
+
+        combo_nav_right { timeout-ms = <25>; key-positions = <17 7 8>;      // M L U
+            bindings = <&sl NAV>; };
 
     };
 
     keymap {
         compatible = "zmk,keymap";
-        // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-
         base_layer {
             // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
             label= "BASE"                              ;
@@ -488,5 +411,5 @@
     //                          &trans       &trans        &trans                                      &trans       &trans        &trans
     //         >;
     //     };
-    // };
+    };
 };
