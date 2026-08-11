@@ -42,155 +42,28 @@
 
 / {
     macros {
+        inst_grave: inst_grave { label = "instant grave"; compatible = "zmk,behavior-macro"; #binding-cells = <0>;
+            bindings = <&macro_press &kp LSHFT>, <&macro_tap &kp GRAVE>, <&macro_release &kp LSHFT>; };
 
-        /*
-        * Giphy:
-        *
-        * Shift+2, then "gif"
-        *
-        * Equivalent to the macro in your existing ZMK keymap.
-        */
-        gif: gif {
-            label = "giphy";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
+        a_acute: a_acute { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp RA(A)>; };
 
-            bindings =
-                <&macro_press &kp LSHFT>,
-                    <&macro_tap &kp N2>,
-                        <&macro_release &kp LSHFT>,
-                            <&macro_tap &kp G &kp I &kp F>;
-        };
+        a_circ: a_circ { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp RA(A)>; };
 
-        /*
-        * Instant grave.
-        *
-        * This is the same implementation you already had in
-        * the ZMK keymap you supplied.
-        */
-        inst_grave: inst_grave {
-            label = "instant grave";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
+        o_tilde: o_tilde { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp RA(O)>; };
 
-            bindings =
-                <&macro_press &kp LSHFT>,
-                    <&macro_tap &kp GRAVE>,
-                        <&macro_release &kp LSHFT>;
-        };
+        o_acute: o_acute { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp RA(O)>; };
 
+        o_circ: o_circ { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp RA(O)>; };
 
-        /*
-        * ----------------------------------------------------
-        * Unicode helpers
-        * ----------------------------------------------------
-        *
-        * These use the Linux Ctrl+Shift+U Unicode input method.
-        *
-        * If your host is Windows/macOS, replace these with the
-        * appropriate Unicode-input mechanism.
-        */
+        e_acute: e_acute { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp RA(E)>; };
 
-        a_grave: a_grave {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <30>;
-            tap-ms = <30>;
+        e_circ: e_circ { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp RA(E)>; };
 
-            bindings =
-                <&macro_press &kp LCTRL>,
-                    <&macro_press &kp LSHFT>,
-                        <&macro_tap &kp U>,
-                            <&macro_release &kp LSHFT>,
-                                <&macro_release &kp LCTRL>,
-                                    <&macro_tap &kp N0 &kp N0 &kp N0 &kp N0 &kp N0 &kp N0 &kp N0 &kp N0>;
-        };
+        i_acute: i_acute { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp RA(I)>; };
 
-        /*
-        * The accent macros below are intentionally kept as
-        * simple placeholders so the actual Unicode implementation
-        * can be changed for your host OS.
-        *
-        * Replace the bodies with your preferred Unicode mechanism.
-        */
+        u_acute: u_acute { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp RA(U)>; };
 
-        a_tilde: a_tilde {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp RR(A)>;
-        };
-
-        a_acute: a_acute {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp RA(A)>;
-        };
-
-        a_circ: a_circ {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp RA(A)>;
-        };
-
-        o_tilde: o_tilde {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp RA(O)>;
-        };
-
-        o_acute: o_acute {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp RA(O)>;
-        };
-
-        o_circ: o_circ {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp RA(O)>;
-        };
-
-        e_acute: e_acute {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp RA(E)>;
-        };
-
-        e_circ: e_circ {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp RA(E)>;
-        };
-
-        i_acute: i_acute {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp RA(I)>;
-        };
-
-        u_acute: u_acute {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp RA(U)>;
-        };
-
-        c_cedil: c_cedil {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp RA(C)>;
-        };
-
-        /*
-        * QMK's IM_* symbols.
-        *
-        * The existing ZMK keymap already used instant grave for
-        * IM_GRV, so preserve that behavior.
-        */
-        im_grv: im_grv {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&inst_grave>;
-        };
+        c_cedil: c_cedil { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp RA(C)>; };
 
     };
     combos {
@@ -292,9 +165,6 @@
     keymap {
         compatible = "zmk,keymap";
         base_layer {
-            // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-            label= "BASE"                              ;
-            // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
             //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
             //             ┃00   Q     ┃01   W     ┃02   F     ┃03   P     ┃04   B     ┃   ┃05         ┃06   O     ┃07   L     ┃08   U     ┃09   Y     ┃ 
             //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
@@ -304,27 +174,28 @@
             // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
             //                                     ┃33         ┃34 \SPC    ┃35         ┃   ┃36         ┃37 \ENTER  ┃38         ┃
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-            bindings = <
+
+
+            label = "BASE"; bindings = <
                 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                    &kp Q       &kp W       &kp F       &kp P       &kp B           &trans      &kp O       &kp L       &kp U       &kp Y
-                    &kp A       &kp R       &kp S       &kp T       &kp G           &kp J       &kp M       &kp N       &kp E       &kp I
-        &trans      &kp Z       &kp X       &kp C       &kp D       &trans          &kp V       &kp K       &kp H       &kp COMMA   &kp DOT     &trans
-                                            &trans   &lt NAV SPACE  &trans          &trans   &lt NUM ENTER  &trans
+                                &kp Q       &kp W       &kp F       &kp P       &kp B           &trans      &kp O       &kp L       &kp U       &kp Y
+                                &kp A       &kp R       &kp S       &kp T       &kp G           &kp J       &kp M       &kp N       &kp E       &kp I
+                    &trans      &kp Z       &kp X       &kp C       &kp D       &trans          &kp V       &kp K       &kp H       &kp COMMA   &kp DOT     &trans
+                                                        &trans   &lt NAV SPACE  &trans          &trans   &lt NUM ENTER  &trans
             >;
         };
-    //     num_layer {
-    //         display-name = "NUM";
-    //
-    //         bindings = <
-    //             &trans       &trans       &trans       &trans       &trans                   &trans       &trans       &trans       &trans       &trans
-    //             &kp EXCL     &kp AT       &kp HASH     &kp DLLR     &kp PRCNT                &trans       &kp AMPS      &kp ASTRK     &kp PLUS     &kp EQUAL
-    //             &kp N1       &kp N2       &kp N3       &kp N4       &kp N5                   &trans       &kp N6        &kp N7        &kp N8        &kp N9        &kp N0
-    //             &trans       &inst_grave  &kp TILDE    &kp MINUS    &kp UNDER                &trans       &kp CARET     &kp SEMI      &kp COLON     &kp SQT       &kp DQT
-    //
-    //             &trans       &trans       &trans                                             &trans       &trans       &trans
-    //         >;
-    //     };
+        num_layer {
+            label = "NUM"; bindings = <
+                // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
+
+                                &trans      &trans      &trans      &trans      &trans          &trans      &trans      &trans      &trans      &trans
+                                &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT       &trans      &kp AMPS    &kp ASTRK   &kp PLUS    &kp EQUAL
+                                &kp N1      &kp N2      &kp N3      &kp N4      &kp N5          &trans      &kp N6      &kp N7      &kp N8      &kp N9      &kp N0
+                    &trans      &inst_grave &kp TILDE   &kp MINUS   &kp UNDER   &trans          &kp CARET   &kp SEMI    &kp COLON   &kp SQT     &kp DQT
+                                                        &trans      &trans      &trans          &trans      &trans      &trans
+            >;
+        };
     //     sym_layer {
     //         display-name = "SYM";
     //
