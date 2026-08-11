@@ -472,12 +472,10 @@
             display-name = "ARROW";
 
             bindings = <
-                        &trans       &trans       &kp BRI_UP    &kp BRI_DN    &kp C_PP          &trans       &trans       &kp HOME      &kp PG_DN     &kp PG_UP
-                &kp END &kp C_VOL_DN  &kp C_VOL_UP &kp C_PREV    &kp C_NEXT          &trans        &trans       &kp LEFT      &kp DOWN      &kp UP &kp RIGHT
-
-                &trans       &trans       &trans       &trans       &trans          &trans       &trans       &trans       &trans       &trans &trans
-
-                &trans       &trans       &trans          &trans       &trans       &trans
+                        &trans        &trans       &kp BRI_UP    &kp BRI_DN    &kp C_PP      &trans       &kp HOME     &kp PG_DN     &kp PG_UP    &kp END
+                        &kp C_VOL_DN  &kp C_VOL_UP &kp C_PREV    &kp C_NEXT    &trans        &trans       &kp LEFT     &kp DOWN      &kp UP       &kp RIGHT
+                  &trans    &trans       &trans        &trans        &trans        &trans        &trans       &trans       &trans        &trans       &trans    &trans
+                                                   &trans        &trans        &trans        &trans       &trans       &trans
             >;
         };
         opts_layer {
