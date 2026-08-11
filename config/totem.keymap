@@ -9,156 +9,486 @@
 //                                                                      ▀  ▀  ▀
 //
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-       
+
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/pointing.h>
 
-#define BASE 0
-#define NAV  1
-#define SYM  2
-#define ADJ  3
+#define BASE       0
+#define NUM        1
+#define SYM        2
+#define NAV        3
+#define MOUSE      4
+#define ADJ        5
+#define GAME       6
+#define ARROW      7
+#define OPTS       8
 
 &mt {
-    quick-tap-ms = <100>;
+    quick-tap-ms = <200>;
     global-quick-tap;
     flavor = "tap-preferred";
     tapping-term-ms = <170>;
 };
 
+&lt {
+    tapping-term-ms = <170>;
+    quick-tap-ms = <200>;
+    flavor = "tap-preferred";
+};
+
 / {
-    combos {
-        compatible = "zmk,combos";
-
-        combo_esc {
-            timeout-ms = <50>;
-            key-positions = <0 1>;
-            bindings = <&kp ESC>;
-        };
-    };
-
     macros {
+
+        /*
+        * Giphy:
+        *
+        * Shift+2, then "gif"
+        *
+        * Equivalent to the macro in your existing ZMK keymap.
+        */
         gif: gif {
             label = "giphy";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+
             bindings =
-                <&macro_press>,
-                <&kp LSHFT>,
-                <&macro_tap>,
-                <&kp N2>,
-                <&macro_release>,
-                <&kp LSHFT>,
-                <&macro_tap>,
-                <&kp G &kp I &kp F>;
+                <&macro_press &kp LSHFT>,
+                    <&macro_tap &kp N2>,
+                        <&macro_release &kp LSHFT>,
+                            <&macro_tap &kp G &kp I &kp F>;
         };
+
+        /*
+        * Instant grave.
+        *
+        * This is the same implementation you already had in
+        * the ZMK keymap you supplied.
+        */
+        inst_grave: inst_grave {
+            label = "instant grave";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+
+            bindings =
+                <&macro_press &kp LSHFT>,
+                    <&macro_tap &kp GRAVE>,
+                        <&macro_release &kp LSHFT>;
+        };
+
+
+        /*
+        * ----------------------------------------------------
+        * Unicode helpers
+        * ----------------------------------------------------
+        *
+        * These use the Linux Ctrl+Shift+U Unicode input method.
+        *
+        * If your host is Windows/macOS, replace these with the
+        * appropriate Unicode-input mechanism.
+        */
+
+        a_grave: a_grave {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+
+            bindings =
+                <&macro_press &kp LCTRL>,
+                    <&macro_press &kp LSHFT>,
+                        <&macro_tap &kp U>,
+                            <&macro_release &kp LSHFT>,
+                                <&macro_release &kp LCTRL>,
+                                    <&macro_tap &kp N0 &kp N0 &kp N0 &kp N0 &kp N0 &kp N0 &kp N0 &kp N0>;
+        };
+
+        /*
+        * The accent macros below are intentionally kept as
+        * simple placeholders so the actual Unicode implementation
+        * can be changed for your host OS.
+        *
+        * Replace the bodies with your preferred Unicode mechanism.
+        */
+
+        a_tilde: a_tilde {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RA(A)>;
+        };
+
+        a_acute: a_acute {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RA(A)>;
+        };
+
+        a_circ: a_circ {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RA(A)>;
+        };
+
+        o_tilde: o_tilde {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RA(O)>;
+        };
+
+        o_acute: o_acute {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RA(O)>;
+        };
+
+        o_circ: o_circ {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RA(O)>;
+        };
+
+        e_acute: e_acute {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RA(E)>;
+        };
+
+        e_circ: e_circ {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RA(E)>;
+        };
+
+        i_acute: i_acute {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RA(I)>;
+        };
+
+        u_acute: u_acute {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RA(U)>;
+        };
+
+        c_cedil: c_cedil {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RA(C)>;
+        };
+
+        /*
+        * QMK's IM_* symbols.
+        *
+        * The existing ZMK keymap already used instant grave for
+        * IM_GRV, so preserve that behavior.
+        */
+        im_grv: im_grv {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&inst_grave>;
+        };
+
     };
 
-        keymap {
-                compatible = "zmk,keymap";
-// ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+    combos {
+        compatible = "zmk,combos";
 
-                base_layer {
-// ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-label= "BASE"                              ;
-// ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-//             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-//             ┃     Q     ┃     W     ┃     F     ┃     P     ┃     G     ┃   ┃     J     ┃     L     ┃     U     ┃     Y     ┃     ;     ┃
-//             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-//             ┃     A     ┃     R     ┃     S     ┃     T     ┃     D     ┃   ┃     H     ┃     N     ┃     E     ┃     I     ┃     O     ┃
-// ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
-// ┃           ┃     Z     ┃     X     ┃     C     ┃     V     ┃     B     ┃   ┃     K     ┃     M     ┃     ,     ┃     .     ┃     /     ┃           ┃
-// ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-//                                     ┃           ┃    TAB    ┃    SPC    ┃   ┃   ENTER   ┃   BSPC    ┃           ┃
-//                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
- bindings = <
-// ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
-
-                &kp Q       &kp W       &kp E       &kp R       &kp T           &kp Y       &kp U       &kp I       &kp O       &kp P
-                &kp A   &kp S  &kp D  &kp F &kp G           &kp H       &kp J &kp K  &kp L  &kp L
-    &kp Z       &kp Z       &kp X       &kp C       &kp V       &kp B           &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &kp FSLH
-                                        &kp TAB     &kp TAB     &lt NAV SPACE   &lt SYM RET &kp BSPC    &kp BSPC
-                        >;
-                };
-
-// ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-
-
-                nav_layer {
-// ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-label= "NAVI"                              ;
-// ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-//             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-//             ┃           ┃           ┃     UP    ┃           ┃     {     ┃   ┃     }     ┃     7     ┃     8     ┃     9     ┃     +     ┃
-//             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-//             ┃   SHIFT   ┃   LEFT    ┃    DOWN   ┃   RIGHT   ┃     [     ┃   ┃     ]     ┃     4     ┃     5     ┃     6     ┃     -     ┃
-// ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
-// ┃           ┃           ┃   P UP    ┃  C LOCK   ┃  P DOWN   ┃     (     ┃   ┃     )     ┃     1     ┃     2     ┃     3     ┃     *     ┃           ┃
-// ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-//                                     ┃           ┃    TAB    ┃    SPC    ┃   ┃    DEL    ┃     0     ┃           ┃
-//                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
- bindings = <
-// ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
-
-                &kp ESC     &bt BT_CLR  &kp UP      &kp EQUAL   &kp LBRC        &kp RBRC    &kp KP_N7   &kp KP_N8   &kp KP_N9   &kp KP_PLUS
-                &kp LSHFT   &kp LEFT    &kp DOWN    &kp RIGHT   &kp LBKT        &kp RBKT    &kp KP_N4   &kp KP_N5   &kp KP_N6   &kp KP_MINUS
-    &trans      &kp DEL     &kp PG_UP   &kp CAPS    &kp PG_DN   &kp LPAR        &kp RPAR    &kp KP_N1   &kp KP_N2   &kp KP_N3   &kp KP_MULTIPLY &trans      
-                                        &trans      &trans      &trans          &mo ADJ     &kp KP_N0   &trans      
-                        >;
-                };
-
-// ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-
-
-                sim_layer {
-// ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-label= "SYM"                               ;
-// ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-//             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-//             ┃     !     ┃     @     ┃     #     ┃     $     ┃     %     ┃   ┃     ˆ     ┃     &     ┃     Ü     ┃     '     ┃     "     ┃
-//             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-//             ┃     Ä     ┃           ┃    SZ     ┃           ┃           ┃   ┃   MUTE    ┃   YEN     ┃   EURO    ┃  POUND    ┃     Ö     ┃
-// ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
-// ┃           ┃  EMAIL1   ┃  EMAIL2   ┃           ┃           ┃           ┃   ┃   VOL-    ┃   VOL+    ┃   LAST    ┃   NEXT    ┃     \     ┃           ┃
-// ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-//                                     ┃           ┃    GIF    ┃    ADJ    ┃   ┃           ┃           ┃           ┃
-//                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
- bindings = <
-// ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
-
-                &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT       &kp CARET   &kp AMPS    &kp RA(U)   &kp SQT     &kp DQT       
-                &kp RA(A)   &trans      &kp RA(S)   &trans      &trans          &kp C_MUTE  &kp LS(RA(N4)) &kp RA(N5) &kp RA(N4)   &kp RA(O) 
-    &trans      &kp RA(F18) &kp RA(F19) &trans      &trans      &trans          &kp C_VOL_DN &kp C_VOL_UP &kp C_PREV &kp C_NEXT  &kp BSLH   &trans         
-                                        &trans      &gif        &mo ADJ         &trans      &kp C_PP    &trans      
-                        >;
-                };
-
-// ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-
-
-                adjust_layer {
-// ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-label= "ADJ"                               ;
-// ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-//             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-//             ┃   RESET   ┃ BT CLEAR  ┃  OUT TOG  ┃           ┃           ┃   ┃           ┃    F7     ┃    F8     ┃    F9     ┃    F12    ┃
-//             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-//             ┃ BOOTLOAD  ┃ BT NEXT   ┃           ┃           ┃           ┃   ┃           ┃    F4     ┃    F5     ┃    F6     ┃    F11    ┃
-// ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
-// ┃           ┃           ┃ BT PREV   ┃           ┃           ┃           ┃   ┃           ┃    F1     ┃    F2     ┃    F3     ┃    F10    ┃           ┃
-// ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-//                                     ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃
-//                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
- bindings = <
-// ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
-
-                &sys_reset  &bt BT_CLR &out OUT_TOG &trans      &trans          &trans      &kp F7      &kp F8      &kp F9      &kp F12
-                &bootloader &bt BT_NXT  &trans      &trans      &trans          &trans      &kp F4      &kp F5      &kp F6      &kp F11  
-    &trans      &trans      &bt BT_PRV  &trans      &trans      &trans          &trans      &kp F1      &kp F2      &kp F3      &kp F10     &trans         
-                                        &trans      &trans      &trans          &trans      &trans      &trans      
-                        >;
-                };
+        combo_lshift {
+            timeout-ms = <25>;
+            key-positions = <12 13>;       // T + S
+            bindings = <&kp LSHFT>;
         };
+
+        combo_rshift {
+            timeout-ms = <25>;
+            key-positions = <17 18>;       // M + N
+            bindings = <&kp RSHFT>;
+        };
+
+        combo_lctrl {
+            timeout-ms = <25>;
+            key-positions = <12 11>;       // S + R
+            bindings = <&kp LCTRL>;
+        };
+
+        combo_rctrl {
+            timeout-ms = <25>;
+            key-positions = <18 19>;       // N + E
+            bindings = <&kp RCTRL>;
+        };
+
+        combo_lalt {
+            timeout-ms = <25>;
+            key-positions = <2 1>;         // F + W
+            bindings = <&kp LALT>;
+        };
+
+        combo_ralt {
+            timeout-ms = <25>;
+            key-positions = <7 8>;         // L + U
+            bindings = <&kp RALT>;
+        };
+
+        combo_lgui {
+            timeout-ms = <25>;
+            key-positions = <10 11>;       // A + R
+            bindings = <&kp LGUI>;
+        };
+
+        combo_rgui {
+            timeout-ms = <25>;
+            key-positions = <19 20>;       // E + I
+            bindings = <&kp RGUI>;
+        };
+
+        combo_lgui_alt {
+            timeout-ms = <25>;
+            key-positions = <10 2>;        // A + F
+            bindings = <&sk LGUI>;
+        };
+
+        combo_rgui_alt {
+            timeout-ms = <25>;
+            key-positions = <7 20>;        // L + I
+            bindings = <&sk RGUI>;
+        };
+
+        combo_lgui_ctrl {
+            timeout-ms = <25>;
+            key-positions = <10 11 12>;    // A R S
+            bindings = <&sk LGUI>;
+        };
+
+        combo_rgui_ctrl {
+            timeout-ms = <25>;
+            key-positions = <18 19 20>;    // N E I
+            bindings = <&sk RGUI>;
+        };
+
+        combo_lgui_shift {
+            timeout-ms = <25>;
+            key-positions = <10 11 13>;    // A R T
+            bindings = <&sk LGUI>;
+        };
+
+        combo_rgui_shift {
+            timeout-ms = <25>;
+            key-positions = <17 19 20>;    // M E I
+            bindings = <&sk RGUI>;
+        };
+
+        combo_lalt_shift {
+            timeout-ms = <25>;
+            key-positions = <2 13>;        // F T
+            bindings = <&sk LALT>;
+        };
+
+        combo_ralt_shift {
+            timeout-ms = <25>;
+            key-positions = <7 17>;        // L M
+            bindings = <&sk RALT>;
+        };
+
+
+        /*
+        * Functional combos
+        */
+
+        combo_caps {
+            timeout-ms = <25>;
+            key-positions = <3 4>;         // P + B
+            bindings = <&kp CAPS>;
+        };
+
+        combo_esc {
+            timeout-ms = <25>;
+            key-positions = <17 20>;       // M + I
+            bindings = <&kp ESC>;
+        };
+
+        combo_tab {
+            timeout-ms = <25>;
+            key-positions = <0 1>;         // Q + W
+            bindings = <&kp TAB>;
+        };
+
+        combo_backspace {
+            timeout-ms = <25>;
+            key-positions = <28 18>;       // K + N
+            bindings = <&kp BSPC>;
+        };
+
+        combo_delete {
+            timeout-ms = <25>;
+            key-positions = <28 29>;       // K + H
+            bindings = <&kp DEL>;
+        };
+
+        combo_arrow_left {
+            timeout-ms = <25>;
+            key-positions = <1 13>;        // W + T
+            bindings = <&mo ARROW>;
+        };
+
+        combo_arrow_right {
+            timeout-ms = <25>;
+            key-positions = <17 8>;        // M + U
+            bindings = <&mo ARROW>;
+        };
+
+        /*
+        * Navigation layer:
+        *
+        * QMK:
+        *   W + F + T -> TT(LAY_NAV)
+        *   M + L + U -> TT(LAY_NAV)
+        *
+        * ZMK doesn't have a direct TT equivalent, so sticky layer
+        * is the closest useful representation here.
+        */
+        combo_nav_left {
+            timeout-ms = <25>;
+            key-positions = <1 2 13>;      // W F T
+            bindings = <&sl NAV>;
+        };
+
+        combo_nav_right {
+            timeout-ms = <25>;
+            key-positions = <17 7 8>;      // M L U
+            bindings = <&sl NAV>;
+        };
+
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+        // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+
+        base_layer {
+            // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+            label= "BASE"                              ;
+            // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+            //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
+            //             ┃00   Q     ┃01   W     ┃02   F     ┃03   P     ┃04   B     ┃   ┃05         ┃06   O     ┃07   L     ┃08   U     ┃09   Y     ┃ 
+            //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
+            //             ┃10   A     ┃11   R     ┃12   S     ┃13   T     ┃14   G     ┃   ┃16   J     ┃17   M     ┃18   N     ┃19   E     ┃20   I     ┃
+            // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
+            // ┃21         ┃22   Z     ┃23   X     ┃24   C     ┃25   D     ┃26         ┃   ┃27   V     ┃28   K     ┃29   H     ┃30   ,     ┃31   .     ┃32         ┃
+            // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
+            //                                     ┃33         ┃34 \SPC    ┃35         ┃   ┃36         ┃37 \ENTER  ┃38         ┃
+            //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
+            bindings = <
+                // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
+
+                &kp Q       &kp W       &kp F       &kp P       &kp B           &trans      &kp O       &kp L       &kp U       &kp Y
+                &kp A       &kp R       &kp S       &kp T       &kp G           &kp J       &kp M       &kp N       &kp E       &kp I
+                &trans      &kp Z       &kp X       &kp C       &kp D       &trans          &kp V       &kp K       &kp H       &kp COMMA   &kp DOT     &trans
+                &trans   &lt NAV SPACE  &trans          &trans   &lt NUM ENTER  &trans
+            >;
+        };
+        num_layer {
+            display-name = "NUM";
+
+            bindings = <
+                &trans       &trans       &trans       &trans       &trans                   &trans       &trans       &trans       &trans       &trans
+                &kp EXCL     &kp AT       &kp HASH     &kp DLLR     &kp PRCNT                &trans       &kp AMPS      &kp ASTRK     &kp PLUS     &kp EQUAL
+                &kp N1       &kp N2       &kp N3       &kp N4       &kp N5                   &trans       &kp N6        &kp N7        &kp N8        &kp N9        &kp N0
+                &trans       &inst_grave  &kp TILDE    &kp MINUS    &kp UNDER                &trans       &kp CARET     &kp SEMI      &kp COLON     &kp SQT       &kp DQT
+
+                &trans       &trans       &trans                                             &trans       &trans       &trans
+            >;
+        };
+        sym_layer {
+            display-name = "SYM";
+
+            bindings = <
+                &trans       &trans       &kp BSLH      &kp FSLH      &trans            &u_tilde     &kp RBKT      &u_acute     &trans       &trans
+                &a_grave     &a_tilde      &a_acute     &a_circ       &kp QMARK         &trans       &o_acute     &kp LBKT      &e_acute     &i_acute     &trans
+                &trans       &kp LPAR      &kp RPAR      &c_cedil     &kp LBKT          &trans       &trans       &o_circ       &kp RBKT     &e_circ &trans
+                &trans       &trans       &trans                                        &trans       &trans       &trans
+            >;
+        };
+        nav_layer {
+            display-name = "NAV";
+
+            bindings = <
+                &trans       &trans       &trans       &mkp RCLK     &mkp LCLK          &trans       &trans       &trans       &msc SCRL_LEFT
+                &msc SCRL_DOWN
+                &mmv MOVE_LEFT  &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &trans          &trans          &trans        &trans       &trans
+
+                &trans       &trans       &trans       &trans       &trans          &trans       &trans       &trans       &trans       &trans
+                &trans
+
+                &trans       &trans       &trans          &trans       &trans       &trans
+            >;
+        };
+        mouse_layer {
+            display-name = "MOUSE";
+
+            bindings = <
+                &trans       &trans       &trans       &trans       &trans          &trans       &trans       &trans       &trans       &trans
+
+                &trans       &trans       &trans       &trans       &trans          &trans       &trans       &trans       &trans       &trans       &trans
+
+                &trans       &trans       &trans       &trans       &trans          &trans       &trans       &trans       &trans       &trans       &trans
+                &trans
+
+                &trans       &trans       &trans          &trans       &trans       &trans
+            >;
+        };
+        adj_layer {
+            display-name = "ADJ";
+
+            bindings = <
+                &bt BT_SEL 0       &bt BT_SEL 1       &bt BT_SEL 2          &bt BT_SEL 3       &trans             &trans
+
+                &sys_reset         &trans             &trans             &trans             &trans          &trans             &kp F1             &kp F2             &kp F3             &kp F4
+
+                &bootloader        &trans             &trans             &trans             &trans          &trans             &kp F5             &kp F6             &kp F7             &kp F8
+                &kp F9
+
+                &trans             &trans             &trans          &trans             &kp F10            &kp F11
+            >;
+        };
+        game_layer {
+            display-name = "GAME";
+
+            bindings = <
+                &kp Q        &kp W        &kp F        &kp P        &kp B          &trans       &kp O        &kp L        &kp U        &kp Y
+
+                &kp A        &kp R        &kp S        &kp T        &kp G          &trans       &kp J        &kp M        &kp N        &kp E        &kp I
+
+                &trans       &kp Z        &kp X        &kp C        &kp D          &trans       &kp V        &kp K        &kp H        &kp COMMA   &kp DOT
+                &trans
+
+                &trans       &kp LGUI     &kp LALT          &kp SPACE    &kp ENTER     &trans
+            >;
+        };
+        arrow_layer {
+            display-name = "ARROW";
+
+            bindings = <
+                        &trans       &trans       &kp BRI_UP    &kp BRI_DN    &kp C_PP          &trans       &trans       &kp HOME      &kp PG_DN     &kp PG_UP
+                &kp END &kp C_VOL_DN  &kp C_VOL_UP &kp C_PREV    &kp C_NEXT          &trans        &trans       &kp LEFT      &kp DOWN      &kp UP &kp RIGHT
+
+                &trans       &trans       &trans       &trans       &trans          &trans       &trans       &trans       &trans       &trans &trans
+
+                &trans       &trans       &trans          &trans       &trans       &trans
+            >;
+        };
+        opts_layer {
+            display-name = "OPTS";
+
+            bindings = <
+                             &trans       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3    &trans       &trans        &trans        &trans        &sys_reset
+                             &kp F1       &kp F2        &kp F3        &kp F4        &kp F5          &kp F6       &kp F7        &kp F8        &kp F9        &kp F10        &kp F11
+                &bootloader  &trans        &trans        &trans       &trans        &trans          &kp F12      &trans        &trans        &trans        &trans
+                             &trans       &trans        &trans                                      &trans       &trans        &trans
+            >;
+        };
+    };
 };
