@@ -18,14 +18,14 @@
 #include <dt-bindings/zmk/pointing.h>
 
 #define BASE       0
-// #define NUM        1
-// #define SYM        2
-// #define NAV        3
-// #define MOUSE      4
-// #define ADJ        5
-// #define GAME       6
-// #define ARROW      7
-// #define OPTS       8
+#define NUM        1
+#define SYM        2
+#define NAV        3
+#define MOUSE      4
+#define ADJ        5
+#define GAME       6
+#define ARROW      7
+#define OPTS       8
 
 &mt {
     quick-tap-ms = <200>;
