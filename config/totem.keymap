@@ -45,25 +45,30 @@
         inst_grave: inst_grave { label = "instant grave"; compatible = "zmk,behavior-macro"; #binding-cells = <0>;
             bindings = <&macro_press &kp LSHFT>, <&macro_tap &kp GRAVE>, <&macro_release &kp LSHFT>; };
 
-        a_acute: a_acute { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp RA(A)>; };
+        a_acute: a_acute { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
+            bindings = <&macro_tap &kp SQT>, <&macro_tap &kp A> };
+        o_acute: o_acute { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
+            bindings = <&macro_tap &kp SQT>, <&macro_tap &kp O> };
+        e_acute: e_acute { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
+            bindings = <&macro_tap &kp SQT>, <&macro_tap &kp E> };
+        i_acute: i_acute { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
+            bindings = <&macro_tap &kp SQT>, <&macro_tap &kp I> };
+        u_acute: u_acute { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
+            bindings = <&macro_tap &kp SQT>, <&macro_tap &kp U> };
 
-        a_circ: a_circ { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp RA(A)>; };
+        a_circ: a_circ { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
+            bindings = <&macro_press &kp LSHFT>, <&macro_tap &kp N6>, <&macro_release &kp LSHFT>, <&macro_tap &kp A>; };
+        o_circ: o_circ { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
+            bindings = <&macro_press &kp LSHFT>, <&macro_tap &kp N6>, <&macro_release &kp LSHFT>, <&macro_tap &kp O>; };
+        e_circ: e_circ { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
+            bindings = <&macro_press &kp LSHFT>, <&macro_tap &kp N6>, <&macro_release &kp LSHFT>, <&macro_tap &kp E>; };
 
-        o_tilde: o_tilde { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp RA(O)>; };
-
-        o_acute: o_acute { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp RA(O)>; };
-
-        o_circ: o_circ { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp RA(O)>; };
-
-        e_acute: e_acute { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp RA(E)>; };
-
-        e_circ: e_circ { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp RA(E)>; };
-
-        i_acute: i_acute { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp RA(I)>; };
-
-        u_acute: u_acute { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp RA(U)>; };
-
-        c_cedil: c_cedil { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp RA(C)>; };
+        a_tilde: a_tilde { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
+            bindings = <&macro_press &kp LSHFT>, <&macro_tap &kp GRAVE>, <&macro_release &kp LSHFT>, <&macro_tap &kp A>; };
+        o_tilde: o_tilde { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
+            bindings = <&macro_press &kp LSHFT>, <&macro_tap &kp GRAVE>, <&macro_release &kp LSHFT>, <&macro_tap &kp O>; };
+        c_cedil: c_cedil { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
+            bindings = <&macro_press &kp LSHFT>, <&macro_tap &kp GRAVE>, <&macro_release &kp LSHFT>, <&macro_tap &kp C>; };
 
     };
     combos {
@@ -164,21 +169,21 @@
 
     keymap {
         compatible = "zmk,keymap";
-        base_layer {
-            //                 ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-            //                 ┃00   Q     ┃01   W     ┃02   F     ┃03   P     ┃04   B     ┃   ┃05         ┃06   O     ┃07   L     ┃08   U     ┃09   Y     ┃ 
-            //                 ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-            //                 ┃10   A     ┃11   R     ┃12   S     ┃13   T     ┃14   G     ┃   ┃16   J     ┃17   M     ┃18   N     ┃19   E     ┃20   I     ┃
-            //     ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
-            //     ┃21         ┃22   Z     ┃23   X     ┃24   C     ┃25   D     ┃26         ┃   ┃27   V     ┃28   K     ┃29   H     ┃30   ,     ┃31   .     ┃32         ┃
-            //     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-            //                                         ┃33         ┃34 \SPC    ┃35         ┃   ┃36         ┃37 \ENTER  ┃38         ┃
-            //                                         ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
+        //                     ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
+        //                     ┃00   Q     ┃01   W     ┃02   F     ┃03   P     ┃04   B     ┃   ┃05         ┃06   O     ┃07   L     ┃08   U     ┃09   Y     ┃ 
+        //                     ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
+        //                     ┃10   A     ┃11   R     ┃12   S     ┃13   T     ┃14   G     ┃   ┃16   J     ┃17   M     ┃18   N     ┃19   E     ┃20   I     ┃
+        //         ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
+        //         ┃21         ┃22   Z     ┃23   X     ┃24   C     ┃25   D     ┃26         ┃   ┃27   V     ┃28   K     ┃29   H     ┃30   ,     ┃31   .     ┃32         ┃
+        //         ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
+        //                                             ┃33         ┃34 \SPC    ┃35         ┃   ┃36         ┃37 \ENTER  ┃38         ┃
+        //                                             ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
+
+        base_layer {
             //     ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
             label = "BASE"; bindings = <
-
                                 &kp Q       &kp W       &kp F       &kp P       &kp B           &trans      &kp O       &kp L       &kp U       &kp Y
                                 &kp A       &kp R       &kp S       &kp T       &kp G           &kp J       &kp M       &kp N       &kp E       &kp I
                     &trans      &kp Z       &kp X       &kp C       &kp D       &trans          &kp V       &kp K       &kp H       &kp COMMA   &kp DOT     &trans
@@ -187,25 +192,26 @@
         };
         num_layer {
             //     ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
+
             label = "NUM"; bindings = <
 
                                 &trans      &trans      &trans      &trans      &trans          &trans      &trans      &trans      &trans      &trans
                                 &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT       &trans      &kp AMPS    &kp ASTRK   &kp PLUS    &kp EQUAL
-                                &kp N1      &kp N2      &kp N3      &kp N4      &kp N5          &trans      &kp N6      &kp N7      &kp N8      &kp N9      &kp N0
-                    &trans      &inst_grave &kp TILDE   &kp MINUS   &kp UNDER   &trans          &kp CARET   &kp SEMI    &kp COLON   &kp SQT     &kp DQT
+                                &kp N1      &kp N2      &kp N3      &kp N4      &kp N5          &trans      &kp N6      &kp N7      &kp N8      &kp N9
+                    &trans      &inst_grave &kp TILDE   &kp MINUS   &kp UNDER   &trans          &kp CARET   &kp SEMI    &kp COLON   &kp SQT     &kp DQT     &kp N0
                                                         &trans      &trans      &trans          &trans      &trans      &trans
             >;
         };
-    //     sym_layer {
-    //         display-name = "SYM";
-    //
-    //         bindings = <
-    //             &trans       &trans       &kp BSLH      &kp FSLH      &trans            &u_tilde     &kp RBKT      &u_acute     &trans       &trans
-    //             &a_grave     &a_tilde      &a_acute     &a_circ       &kp QMARK         &trans       &o_acute     &kp LBKT      &e_acute     &i_acute     &trans
-    //             &trans       &kp LPAR      &kp RPAR      &c_cedil     &kp LBKT          &trans       &trans       &o_circ       &kp RBKT     &e_circ &trans
-    //             &trans       &trans       &trans                                        &trans       &trans       &trans
-    //         >;
-    //     };
+        sym_layer {
+            //     ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
+
+            label = "SYM"; bindings = <
+                                &trans      &trans      &kp BSLH    &kp FSLH    &trans          &u_tilde    &kp RBKT    &u_acute    &trans      &trans
+                                &a_grave    &a_tilde    &a_acute    &a_circ     &kp QMARK       &trans      &o_acute    &kp LBKT    &e_acute    &i_acute
+                    &trans      &kp LPAR    &kp RPAR    &c_cedil    &kp LBKT    &trans          &trans      &o_circ     &kp RBKT    &e_circ     &trans      &trans
+                                                        &trans      &trans      &trans          &trans      &trans      &trans
+            >;
+        };
     //     nav_layer {
     //         display-name = "NAV";
     //
