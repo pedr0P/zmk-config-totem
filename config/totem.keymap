@@ -44,6 +44,8 @@
     macros {
         inst_grave: inst_grave { label = "instant grave"; compatible = "zmk,behavior-macro"; #binding-cells = <0>;
             bindings = <&macro_press &kp LSHFT>, <&macro_tap &kp GRAVE>, <&macro_release &kp LSHFT>; };
+        a_grave: a_grave { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
+            bindings = <&macro_tap &kp GRAVE> <&macro_tap &kp A>; };
 
         a_acute: a_acute { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
             bindings = <&macro_tap &kp SQT>, <&macro_tap &kp A>; };
