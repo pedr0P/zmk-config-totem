@@ -206,7 +206,7 @@
             //     ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
             label = "SYM"; bindings = <
-                                &trans      &trans      &kp BSLH    &kp FSLH    &trans          &u_tilde    &kp RBKT    &u_acute    &trans      &trans
+                                &trans      &trans      &kp BSLH    &kp FSLH    &trans          &o_tilde    &kp RBKT    &u_acute    &trans      &trans
                                 &a_grave    &a_tilde    &a_acute    &a_circ     &kp QMARK       &trans      &o_acute    &kp LBKT    &e_acute    &i_acute
                     &trans      &kp LPAR    &kp RPAR    &c_cedil    &kp LBKT    &trans          &trans      &o_circ     &kp RBKT    &e_circ     &trans      &trans
                                                         &trans      &trans      &trans          &trans      &trans      &trans
