@@ -46,15 +46,15 @@
             bindings = <&macro_press &kp LSHFT>, <&macro_tap &kp GRAVE>, <&macro_release &kp LSHFT>; };
 
         a_acute: a_acute { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_tap &kp SQT>, <&macro_tap &kp A> };
+            bindings = <&macro_tap &kp SQT>, <&macro_tap &kp A>; };
         o_acute: o_acute { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_tap &kp SQT>, <&macro_tap &kp O> };
+            bindings = <&macro_tap &kp SQT>, <&macro_tap &kp O>; };
         e_acute: e_acute { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_tap &kp SQT>, <&macro_tap &kp E> };
+            bindings = <&macro_tap &kp SQT>, <&macro_tap &kp E>; };
         i_acute: i_acute { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_tap &kp SQT>, <&macro_tap &kp I> };
+            bindings = <&macro_tap &kp SQT>, <&macro_tap &kp I>; };
         u_acute: u_acute { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_tap &kp SQT>, <&macro_tap &kp U> };
+            bindings = <&macro_tap &kp SQT>, <&macro_tap &kp U>; };
 
         a_circ: a_circ { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
             bindings = <&macro_press &kp LSHFT>, <&macro_tap &kp N6>, <&macro_release &kp LSHFT>, <&macro_tap &kp A>; };
