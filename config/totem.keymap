@@ -10,6 +10,7 @@
 //
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1500  // default: 600
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
@@ -22,6 +23,7 @@
 #define SYM        2
 #define NAV        3
 #define ARROW      4
+#define ADJ        5
 
 // &mt {
 //     quick-tap-ms = <200>;
@@ -72,10 +74,16 @@
     combos {
         compatible = "zmk,combos";
 
-        combo_lall { timeout-ms = <25>; key-positions = <10 11 12 13>;       // A + R + S + T
-            bindings = <&kp LG(LC(LA(LSHFT)))>; };
-        combo_rall { timeout-ms = <25>; key-positions = <16 17 18 19>;       // M + N + E + I
-            bindings = <&kp RG(RC(RA(RSHFT)))>; };
+        combo_lgcs { timeout-ms = <25>; key-positions = <10 11 12 13>;       // A + R + S + T
+            bindings = <&kp LG(LC(LSHFT))>; };
+        combo_rgcs { timeout-ms = <25>; key-positions = <16 17 18 19>;       // M + N + E + I
+            bindings = <&kp RG(RC(RSHFT))>; };
+
+        combo_lall { timeout-ms = <25>; key-positions = <16 7 18 19>;       // M + N + E + I
+            bindings = <&kp LG(LC(LA((RSHFT))))>; };
+        combo_rall { timeout-ms = <25>; key-positions = <10 11 2 13>;       // M + N + E + I
+            bindings = <&kp RG(RC(RA((RSHFT))))>; };
+
         combo_lshift { timeout-ms = <25>; key-positions = <12 13>;       // T + S
             bindings = <&kp LSHFT>; };
 
@@ -155,13 +163,13 @@
         * is the closest useful representation here.
         */
 
-        combo_nav_left { timeout-ms = <25>; key-positions = <1 13>;      // W T
+        combo_arrow_left { timeout-ms = <25>; key-positions = <1 13>;      // W T
             bindings = <&sl ARROW>; };
-        combo_nav_right { timeout-ms = <25>; key-positions = <16 8>;      // M U
+        combo_arrow_right { timeout-ms = <25>; key-positions = <16 8>;      // M U
             bindings = <&sl ARROW>; };
-        combo_arrow_left { timeout-ms = <25>; key-positions = <1 2 13>;      // W F T
+        combo_nav_left { timeout-ms = <25>; key-positions = <1 2 13>;      // W F T
             bindings = <&sl NAV>; };
-        combo_arrow_right { timeout-ms = <25>; key-positions = <16 7 8>;      // M L U
+        combo_nav_right { timeout-ms = <25>; key-positions = <16 7 8>;      // M L U
             bindings = <&sl NAV>; };
 
     };
@@ -212,8 +220,8 @@
         };
         nav_layer {
             label = "NAV"; bindings = <
-                                &trans      &trans      &trans      &mkp RCLK   &mkp LCLK       &trans &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_UP  &msc SCRL_RIGHT
-                                &trans      &trans      &trans      &trans      &trans          &trans &msc MOVE_LEFT &msc MOVE_DOWN &msc MOVE_UP  &msc MOVE_RIGHT
+                                &trans    &mkp RCLK     &mkp LCLK   &trans      &trans          &trans &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_UP  &msc SCRL_RIGHT
+                                &trans      &trans      &trans      &trans      &trans          &trans &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP  &mmv MOVE_RIGHT
                                 &trans      &trans      &trans      &trans      &trans          &trans      &trans      &trans      &trans      &trans       &trans      &trans
                                                                     &trans      &trans          &trans      &kp ENTER   &trans &trans
             >;
@@ -222,7 +230,15 @@
             label = "ARROW"; bindings = <
                                 &trans      &trans      &trans      &trans      &trans          &trans      &trans       &trans     &trans      &trans
                                 &trans      &trans      &trans      &trans      &trans          &trans      &kp LEFT     &kp DOWN   &kp UP      &kp RIGHT
-                                &trans      &trans      &trans      &trans      &trans          &trans      &trans       &trans     &trans      &trans      &trans      &trans
+                                &mo ADJ     &trans      &trans      &trans      &trans          &trans      &trans       &trans     &trans      &trans      &trans      &trans
+                                                                    &trans      &trans          &trans      &trans       &trans &trans
+            >;
+        };
+        adj_layer {
+            label = "ADJ"; bindings = <
+                               &bootloader  &trans      &trans      &trans      &trans          &trans      &trans       &trans     &trans      &trans
+                             &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &trans      &trans          &trans      &trans       &trans     &trans      &trans
+                                &trans      &trans      &trans      &trans      &trans          &trans      &trans       &trans     &trans      &trans      &trans      &bd BT_CLR
                                                                     &trans      &trans          &trans      &trans       &trans &trans
             >;
         };
