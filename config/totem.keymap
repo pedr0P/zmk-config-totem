@@ -72,6 +72,10 @@
     combos {
         compatible = "zmk,combos";
 
+        combo_lall { timeout-ms = <25>; key-positions = <10 11 12 13>;       // A + R + S + T
+            bindings = <&kp LG(LC(LA(LSHFT)))>; };
+        combo_rall { timeout-ms = <25>; key-positions = <16 17 18 19>;       // M + N + E + I
+            bindings = <&kp RG(RC(RA(RSHFT)))>; };
         combo_lshift { timeout-ms = <25>; key-positions = <12 13>;       // T + S
             bindings = <&kp LSHFT>; };
 
@@ -134,10 +138,10 @@
         combo_tab { timeout-ms = <25>; key-positions = <0 1>;         // Q + W
             bindings = <&kp TAB>; };
 
-        combo_backspace { timeout-ms = <25>; key-positions = <27 17>;       // K + N
+        combo_backspace { timeout-ms = <25>; key-positions = <17 26>;       // K + N
             bindings = <&kp BSPC>; };
 
-        combo_delete { timeout-ms = <25>; key-positions = <27 28>;       // K + H
+        combo_delete { timeout-ms = <25>; key-positions = <26 27>;       // K + H
             bindings = <&kp DEL>; };
 
         /*
@@ -170,9 +174,9 @@
         //                     ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
         //                     ┃10   A     ┃11   R     ┃12   S     ┃13   T     ┃14   G     ┃   ┃15   J     ┃16   M     ┃17   N     ┃18   E     ┃19   I     ┃
         //         ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
-        //         ┃20   ESC   ┃21   Z     ┃22   X     ┃23   C     ┃24   D     ┃25         ┃   ┃26   V     ┃27   K     ┃28   H     ┃29   ,     ┃30   .     ┃31  TAB    ┃
+        //         ┃31   ESC   ┃20   Z     ┃21   X     ┃22   C     ┃23   D     ┃24         ┃   ┃25   V     ┃26   K     ┃27   H     ┃28   ,     ┃29   .     ┃31  TAB    ┃
         //         ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-        //                                             ┃32         ┃33 \SPC    ┃34         ┃   ┃35         ┃36 \ENTER  ┃37         ┃
+        //                                             ┃36         ┃32 \SPC    ┃33         ┃   ┃34         ┃35 \ENTER  ┃37         ┃
         //                                             ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
         base_layer {
