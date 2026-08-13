@@ -144,12 +144,6 @@
         combo_delete { timeout-ms = <25>; key-positions = <28 29>;       // K + H
             bindings = <&kp DEL>; };
 
-        combo_arrow_left { timeout-ms = <25>; key-positions = <1 13>;        // W + T
-            bindings = <&mo ARROW>; };
-
-        combo_arrow_right { timeout-ms = <25>; key-positions = <17 8>;        // M + U
-            bindings = <&mo ARROW>; };
-
         /*
         * Navigation layer:
         *
@@ -189,7 +183,7 @@
                                 &kp Q       &kp W       &kp F       &kp P       &kp B           &none       &kp O       &kp L       &kp U       &kp Y
                                 &kp A       &kp R       &kp S       &kp T       &kp G           &kp J       &kp M       &kp N       &kp E       &kp I
                     &none       &kp Z       &kp X       &kp C       &kp D       &none           &kp V       &kp K       &kp H       &kp COMMA   &kp DOT     &none
-                                                        &none    &lt NAV SPACE  &none           &none    &lt NUM ENTER  &none
+                                                        &none    &lt SYM SPACE  &none           &mo NAV  &lt NUM ENTER  &none
             >;
         };
         num_layer {
@@ -214,34 +208,22 @@
                                                         &trans      &trans      &trans          &trans      &kp ENTER   &trans
             >;
         };
-    //     nav_layer {
-    //         display-name = "NAV";
-    //
-    //         bindings = <
-    //             &trans       &trans       &trans       &mkp RCLK     &mkp LCLK          &trans       &trans       &trans       &msc SCRL_LEFT
-    //             &msc SCRL_DOWN
-    //             &mmv MOVE_LEFT  &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &trans          &trans          &trans        &trans       &trans
-    //
-    //             &trans       &trans       &trans       &trans       &trans          &trans       &trans       &trans       &trans       &trans
-    //             &trans
-    //
-    //             &trans       &trans       &trans          &trans       &trans       &trans
-    //         >;
-    //     };
-    //     mouse_layer {
-    //         display-name = "MOUSE";
-    //
-    //         bindings = <
-    //             &trans       &trans       &trans       &trans       &trans          &trans       &trans       &trans       &trans       &trans
-    //
-    //             &trans       &trans       &trans       &trans       &trans          &trans       &trans       &trans       &trans       &trans       &trans
-    //
-    //             &trans       &trans       &trans       &trans       &trans          &trans       &trans       &trans       &trans       &trans       &trans
-    //             &trans
-    //
-    //             &trans       &trans       &trans          &trans       &trans       &trans
-    //         >;
-    //     };
+        nav_layer {
+            label = "NAV"; bindings = <
+                                &trans      &trans      &trans      &mkp RCLK   &mkp LCLK       &trans &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_UP  &msc SCRL_RIGHT
+                                &trans      &trans      &trans      &trans      &trans          &trans &msc MOVE_LEFT &msc MOVE_DOWN &msc MOVE_UP  &msc MOVE_RIGHT
+                    &trans      &trans      &trans      &trans      &trans      &trans          &trans      &trans      &trans      &trans      &trans       &trans
+                                                        &trans      &trans      &trans          &trans      &kp ENTER   &trans
+            >;
+        };
+        arrow_layer {
+            label = "ARROW"; bindings = <
+                                &trans      &trans      &trans      &trans      &trans          &trans      &trans       &trans     &trans      &trans
+                                &trans      &trans      &trans      &trans      &trans          &trans      &kp LEFT     &kp DOWN   &kp UP      &kp RIGHT
+                    &trans      &trans      &trans      &trans      &trans      &trans          &trans      &trans       &trans     &trans      &trans      &trans
+                                                        &trans      &trans      &trans          &trans      &trans       &trans
+            >;
+        };
     //     adj_layer {
     //         display-name = "ADJ";
     //
@@ -254,20 +236,6 @@
     //             &kp F9
     //
     //             &trans             &trans             &trans          &trans             &kp F10            &kp F11
-    //         >;
-    //     };
-    //     game_layer {
-    //         display-name = "GAME";
-    //
-    //         bindings = <
-    //             &kp Q        &kp W        &kp F        &kp P        &kp B          &trans       &kp O        &kp L        &kp U        &kp Y
-    //
-    //             &kp A        &kp R        &kp S        &kp T        &kp G          &trans       &kp J        &kp M        &kp N        &kp E        &kp I
-    //
-    //             &trans       &kp Z        &kp X        &kp C        &kp D          &trans       &kp V        &kp K        &kp H        &kp COMMA   &kp DOT
-    //             &trans
-    //
-    //             &trans       &kp LGUI     &kp LALT          &kp SPACE    &kp ENTER     &trans
     //         >;
     //     };
     //     arrow_layer {
