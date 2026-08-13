@@ -151,11 +151,11 @@
         * is the closest useful representation here.
         */
 
-        combo_nav_left { timeout-ms = <25>; key-positions = <1 2 13>;      // W F T
-            bindings = <&sl NAV>; };
+        combo_nav_left { timeout-ms = <25>; key-positions = <1 13>;      // W T
+            bindings = <&sl ARROW>; };
 
-        combo_nav_right { timeout-ms = <25>; key-positions = <16 7 8>;      // M L U
-            bindings = <&sl NAV>; };
+        combo_nav_right { timeout-ms = <25>; key-positions = <16 8>;      // M U
+            bindings = <&sl ARROW>; };
 
     };
 
