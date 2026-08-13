@@ -199,9 +199,9 @@
 
                                 &trans      &trans      &trans      &trans      &trans          &trans      &trans      &trans      &trans      &trans
                                 &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT       &trans      &kp AMPS    &kp ASTRK   &kp PLUS    &kp EQUAL
-                                &kp N1      &kp N2      &kp N3      &kp N4      &kp N5          &trans      &kp N6      &kp N7      &kp N8      &kp N9
-                    &trans      &inst_grave &kp TILDE   &kp MINUS   &kp UNDER   &trans          &kp CARET   &kp SEMI    &kp COLON   &kp SQT     &kp DQT     &kp N0
-                                                        &trans      &trans      &trans          &trans      &trans      &trans
+                                &kp N1      &kp N2      &kp N3      &kp N4      &kp N5          &kp N6      &kp N7      &kp N8      &kp N9      &kp N0
+                    &trans      &inst_grave &kp TILDE   &kp MINUS   &kp UNDER   &trans          &kp CARET   &kp SEMI    &kp COLON   &kp SQT     &kp DQT     &trans
+                                                        &trans      &kp SPACE   &trans          &trans      &trans      &trans
             >;
         };
         sym_layer {
@@ -211,7 +211,7 @@
                                 &trans      &trans      &kp BSLH    &kp FSLH    &trans          &o_tilde    &kp RBKT    &u_acute    &trans      &trans
                                 &a_grave    &a_tilde    &a_acute    &a_circ     &kp QMARK       &trans      &o_acute    &kp LBKT    &e_acute    &i_acute
                     &trans      &kp LPAR    &kp RPAR    &c_cedil    &kp LBKT    &trans          &trans      &o_circ     &kp RBKT    &e_circ     &trans      &trans
-                                                        &trans      &trans      &trans          &trans      &trans      &trans
+                                                        &trans      &trans      &trans          &trans      &kp ENTER   &trans
             >;
         };
     //     nav_layer {
