@@ -153,9 +153,12 @@
 
         combo_nav_left { timeout-ms = <25>; key-positions = <1 13>;      // W T
             bindings = <&sl ARROW>; };
-
         combo_nav_right { timeout-ms = <25>; key-positions = <16 8>;      // M U
             bindings = <&sl ARROW>; };
+        combo_arrow_left { timeout-ms = <25>; key-positions = <1 2 13>;      // W F T
+            bindings = <&sl NAV>; };
+        combo_arrow_right { timeout-ms = <25>; key-positions = <16 7 8>;      // M L U
+            bindings = <&sl NAV>; };
 
     };
 
@@ -187,7 +190,6 @@
 
             label = "NUM"; bindings = <
 
-                                &trans      &trans      &trans      &trans      &trans          &trans      &trans      &trans      &trans      &trans
                                 &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT       &trans      &kp AMPS    &kp ASTRK   &kp PLUS    &kp EQUAL
                                 &kp N1      &kp N2      &kp N3      &kp N4      &kp N5          &kp N6      &kp N7      &kp N8      &kp N9      &kp N0
                                 &inst_grave &kp TILDE   &kp MINUS   &kp UNDER   &trans          &kp CARET   &kp SEMI    &kp COLON   &kp SQT     &kp DQT     &trans      &trans
