@@ -101,28 +101,28 @@
             bindings = <&kp RGUI>; };
 
         combo_lgui_alt { timeout-ms = <25>; key-positions = <10 2>;        // A + F
-            bindings = <&sk LGUI>; };
+            bindings = <&kp LG(LALT)>; };
 
         combo_rgui_alt { timeout-ms = <25>; key-positions = <7 20>;        // L + I
-            bindings = <&sk RGUI>; };
+            bindings = <&kp RG(RALT)>; };
 
         combo_lgui_ctrl { timeout-ms = <25>; key-positions = <10 11 12>;    // A R S
-            bindings = <&sk LGUI>; };
+            bindings = <&kp LG(LCTRL)>; };
 
         combo_rgui_ctrl { timeout-ms = <25>; key-positions = <18 19 20>;    // N E I
-            bindings = <&sk RGUI>; };
+            bindings = <&kp LG(LCTRL)>; };
 
         combo_lgui_shift { timeout-ms = <25>; key-positions = <10 11 13>;    // A R T
-            bindings = <&sk LGUI>; };
+            bindings = <&kp LG(LSHFT)>; };
 
         combo_rgui_shift { timeout-ms = <25>; key-positions = <17 19 20>;    // M E I
-            bindings = <&sk RGUI>; };
+            bindings = <&kp RG(RSHFT)>; };
 
         combo_lalt_shift { timeout-ms = <25>; key-positions = <2 13>;        // F T
-            bindings = <&sk LALT>; };
+            bindings = <&kp LA(LSHFT)>; };
 
         combo_ralt_shift { timeout-ms = <25>; key-positions = <7 17>;        // L M
-            bindings = <&sk RALT>; };
+            bindings = <&kp RA(RSHFT)>; };
 
 
         /*
