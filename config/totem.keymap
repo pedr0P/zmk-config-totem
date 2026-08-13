@@ -178,7 +178,7 @@
             label = "BASE"; bindings = <
                                 &kp Q       &kp W       &kp F       &kp P       &kp B           &none       &kp O       &kp L       &kp U       &kp Y
                                 &kp A       &kp R       &kp S       &kp T       &kp G           &kp J       &kp M       &kp N       &kp E       &kp I
-                                &kp Z       &kp X       &kp C       &kp D       &none           &none       &kp V       &kp K       &kp H       &kp COMMA   &kp DOT     &none
+                                &kp Z       &kp X       &kp C       &kp D       &none           &kp V       &kp K       &kp H       &kp COMMA   &kp DOT     &none       &none
                                                         &none    &lt SYM SPACE  &none           &mo NAV  &lt NUM ENTER  &none
             >;
         };
