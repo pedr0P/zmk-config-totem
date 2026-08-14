@@ -76,170 +76,170 @@
 
         combo_lguictrlshift {
             slow-release;
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = <10 11 12 13>;       // A + R + S + T
             bindings = <&kp LG(LC(LSHFT))>;
         };
         combo_rguictrlshift {
             slow-release;
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = <16 17 18 19>;       // M + N + E + I
             bindings = <&kp RG(RC(RSHFT))>;
         };
 
         combo_lguictrlaltshift {
             slow-release;
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = <10 11  2 13>;       // A + R + F + T
             bindings = <&kp LG(LC(LA((RSHFT))))>;
         };
 
         combo_rguictrlaltshift {
             slow-release;
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = <16  7 18 19>;       // M + L + E + I
             bindings = <&kp RG(RC(RA((RSHFT))))>;
         };
 
         combo_lshift {
             slow-release;
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = <12 13>;       // T + S
             bindings = <&kp LSHFT>;
         };
         combo_rshift {
             slow-release;
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = <16 17>;       // M + N
             bindings = <&kp RSHFT>;
         };
         combo_lshift_ctrl {
             slow-release;
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = <11 12 13>;       // R S T
             bindings = <&kp LS(LCTRL)>;
         };
         combo_rshift_ctrl {
             slow-release;
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = <16 17 18>;       // M N E
             bindings = <&kp RS(RCTRL)>;
         };
 
         combo_lctrl {
             slow-release;
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = <11 12>;       // R S
             bindings = <&kp LCTRL>;
         };
         combo_rctrl {
             slow-release;
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = <17 18>;       // N E
             bindings = <&kp RCTRL>;
         };
 
         combo_lalt {
             slow-release;
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = <1 2>;         // W F
             bindings = <&kp LALT>;
         };
         combo_ralt {
             slow-release;
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = <7 8>;         // L U
             bindings = <&kp RALT>;
         };
         combo_lalt_shift {
             slow-release;
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = <2 13>;        // F T
             bindings = <&kp LA(LSHFT)>;
         };
         combo_ralt_shift {
             slow-release;
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = <7 16>;        // L M
             bindings = <&kp RA(RSHFT)>;
         };
         combo_lalt_ctrl {
             slow-release;
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = <11 2>;        // R F
             bindings = <&kp LA(LCTRL)>;
         };
         combo_ralt_ctrl {
             slow-release;
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = < 7 18>;        // L E
             bindings = <&kp RA(RCTRL)>;
         };
         combo_lalt_ctrl_shift {
             slow-release;
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = <11  2 13>;    // R F T
             bindings = <&kp LA(LC(LSHFT))>;
         };
         combo_ralt_ctrl_shift {
             slow-release;
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = <16  7 18>;        // M L E
             bindings = <&kp RA(RC(RSHFT))>;
         };
 
         combo_lgui {
             slow-release;
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = <10 11>;       // A + R
             bindings = <&kp LGUI>;
         };
 
         combo_rgui {
             slow-release;
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = <18 19>;       // E + I
             bindings = <&kp RGUI>;
         };
 
         combo_lgui_alt {
             slow-release;
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = <10 2>;        // A + F
             bindings = <&kp LG(LALT)>;
         };
 
         combo_rgui_alt {
             slow-release;
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = <7 19>;        // L + I
             bindings = <&kp RG(RALT)>;
         };
 
         combo_lgui_ctrl {
             slow-release;
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = <10 11 12>;    // A R S
             bindings = <&kp LG(LCTRL)>;
         };
 
         combo_rgui_ctrl {
             slow-release;
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = <17 18 19>;    // N E I
             bindings = <&kp LG(LCTRL)>;
         };
 
         combo_lgui_shift {
             slow-release;
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = <10 11 13>;    // A R T
             bindings = <&kp LG(LSHFT)>;
         };
 
         combo_rgui_shift {
             slow-release;
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = <16 18 19>;    // M E I
             bindings = <&kp RG(RSHFT)>;
         };
@@ -251,31 +251,31 @@
         */
 
         combo_caps {
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = <3 4>;         // P + B
             bindings = <&kp CAPS>;
         };
 
         combo_esc {
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = <16 19>;       // M + I
             bindings = <&kp ESC>;
         };
 
         combo_tab {
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = <0 1>;         // Q + W
             bindings = <&kp TAB>;
         };
 
         combo_backspace {
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = <17 26>;       // K + N
             bindings = <&kp BSPC>;
         };
 
         combo_delete {
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = <26 27>;       // K + H
             bindings = <&kp DEL>;
         };
@@ -293,25 +293,25 @@
 
         combo_arrow_left {
             slow-release;
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = <1 13>;      // W T
             bindings = <&sl ARROW>;
         };
         combo_arrow_right {
             slow-release;
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = <16 8>;      // M U
             bindings = <&sl ARROW>;
         };
         combo_nav_left {
             slow-release;
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = <1 2 13>;      // W F T
             bindings = <&sl NAV>;
         };
         combo_nav_right {
             slow-release;
-            timeout-ms = <25>;
+            timeout-ms = <40>;
             key-positions = <16 7 8>;      // M L U
             bindings = <&sl NAV>;
         };
