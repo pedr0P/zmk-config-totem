@@ -68,7 +68,7 @@
         o_tilde: o_tilde { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
             bindings = <&macro_press &kp LSHFT>, <&macro_tap &kp GRAVE>, <&macro_release &kp LSHFT>, <&macro_tap &kp O>; };
         c_cedil: c_cedil { compatible = "zmk,behavior-macro"; #binding-cells = <0>;
-            bindings = <&macro_press &kp LSHFT>, <&macro_tap &kp GRAVE>, <&macro_release &kp LSHFT>, <&macro_tap &kp C>; };
+            bindings = <&macro_tap &kp SQT>, <&macro_tap &kp C>; };
 
     };
     combos {
