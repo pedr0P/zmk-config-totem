@@ -372,18 +372,18 @@
         };
         arrow_layer {
             label = "ARROW"; bindings = <
-                                &trans      &trans      &trans      &trans      &trans          &trans      &trans       &trans     &trans      &trans
-                                &trans      &trans      &trans      &trans      &trans          &trans      &kp LEFT     &kp DOWN   &kp UP      &kp RIGHT
-                                &mo ADJ     &trans      &trans      &trans      &trans          &trans      &trans       &trans     &trans      &trans      &trans      &trans
+                                &kp F6      &kp F7      &kp F8      &kp F9      &kp F10         &trans      &trans       &trans     &trans      &trans
+                                &kp F1      &kp F2      &kp F3      &kp F4      &kp F5          &trans      &kp LEFT     &kp DOWN   &kp UP      &kp RIGHT
+                                &mo ADJ     &kp F11     &kp F12     &kp F13     &kp F14         &trans      &trans       &trans     &trans      &trans      &trans      &trans
                                                                     &trans      &trans          &trans      &trans       &trans &trans
             >;
         };
         adj_layer {
             label = "ADJ"; bindings = <
-                               &bootloader  &trans      &trans      &trans      &trans          &trans      &trans       &trans     &trans      &trans
-                             &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &trans      &trans          &trans      &trans       &trans     &trans      &trans
-                                &trans  &out OUT_BLE &out OUT_USB   &trans      &trans          &trans      &trans       &trans     &trans      &trans      &trans      &bt BT_CLR
-                                                                    &trans      &trans          &trans      &trans       &trans &trans
+                               &bootloader  &trans      &trans      &trans      &bt BT_CLR      &trans      &trans       &trans     &trans      &bootloader
+                             &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &trans      &trans          &trans      &trans       &trans     &trans      &bt BT_SEL 0
+                                &trans  &out OUT_BLE &out OUT_USB   &trans      &trans          &trans      &trans       &trans     &trans      &trans      &trans      &trans
+                                                                    &trans      &trans          &trans      &trans       &trans     &trans
             >;
         };
     //     adj_layer {
